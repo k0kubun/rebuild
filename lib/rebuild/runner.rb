@@ -8,8 +8,10 @@ module Rebuild
     end
 
     def run
-      puts "script paths: "
-      p script_paths
+      script_paths.each do |path|
+        puts "Running #{path}..."
+        `cat #{path} | bash`
+      end
     end
 
     private
