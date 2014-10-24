@@ -7,7 +7,7 @@ module Rebuild
     BUNDLE_IDENTIFIER = 'com.apple.Terminal'
 
     def installed?
-      system('xcode-select -p > /dev/null')
+      system('xcode-select -p > /dev/null 2>&1')
     end
 
     def install

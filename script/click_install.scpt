@@ -1,7 +1,7 @@
 #!/usr/bin/env osascript
 
 -- Fist: Click Install Button
-set timeoutSeconds to 2.0
+set timeoutSeconds to 1.0
 set uiScript to "click UI Element 4 of window 1 of application process \"Install Command Line Developer Tools\""
 my doWithTimeout(uiScript, timeoutSeconds)
 

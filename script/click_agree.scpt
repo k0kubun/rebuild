@@ -1,8 +1,6 @@
 #!/usr/bin/env osascript
 
 -- Second: Click Agree Button
-delay 2.0
-
 set timeoutSeconds to 2.0
 set uiScript to "click UI Element 3 of window 1 of application process \"Install Command Line Developer Tools\""
 my doWithTimeout(uiScript, timeoutSeconds)
