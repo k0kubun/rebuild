@@ -19,11 +19,7 @@ module Rebuild
       def show_usage
         puts <<-EOS.unindent
           Commands:
-            rebuild              # install command line tools
-            rebuild USER/PROJECT # execute all scripts in GitHub repo's rebuild directory
-
-          Options:
-            -r, [--ref=GIT_REF]  # Default: master
+            rebuild USER/PROJECT # execute all scripts in GitHub repo's root directory
 
         EOS
       end
