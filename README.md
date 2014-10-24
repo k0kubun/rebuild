@@ -1,10 +1,10 @@
 # Rebuild
 
-Development environment rebuild toolkit
+Development environment bootstrap automator for OSX
 
 ## What's this?
 
-In clean-installed OSX, git is unavailable but ruby and gem are available.
+In clean-installed OSX, git is unavailable but gem is available.
 Thus this gem provides a way to fetch GitHub repository archive and execute scripts in it.
 
 ## Usage
