@@ -1,22 +1,7 @@
 #!/usr/bin/env osascript
 
 -- Second: Click Agree Button
-set timeoutSeconds to 2.0
-set uiScript to "click UI Element 3 of window 1 of application process \"Install Command Line Developer Tools\""
-my doWithTimeout(uiScript, timeoutSeconds)
-
-on doWithTimeout(uiScript, timeoutSeconds)
-  set endDate to (current date) + timeoutSeconds
-  repeat
-    try
-      run script "tell application \"System Events\"
-" & uiScript & "
-end tell"
-      exit repeat
-    on error errorMessage
-      if ((current date) > endDate) then
-        error "Can not " & uiScript
-      end if
-    end try
-  end repeat
-end doWithTimeout
+tell application "System Events"
+  set installer to "Install Command Line Developer Tools"
+  click UI Element "Agree" of window 1 of installer
+end tell
