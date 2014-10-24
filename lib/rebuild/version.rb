@@ -1,3 +1,3 @@
 module Rebuild
-  VERSION = '0.0.4.pre3'
+  VERSION = '0.0.4.pre4'
 end
