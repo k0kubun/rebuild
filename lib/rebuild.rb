@@ -1,9 +1,4 @@
-require "rebuild/version"
+require 'rebuild/version'
 
-class Rebuild
-  def initialize(*args)
-  end
-
-  def install
-  end
+module Rebuild
 end

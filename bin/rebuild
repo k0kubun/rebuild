@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
-require 'rebuild'
-Rebuild.new(ARGV).install
+require 'rebuild/cli'
+Rebuild::CLI.run

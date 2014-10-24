@@ -1,3 +1,3 @@
-class Rebuild
-  VERSION = "0.0.1"
+module Rebuild
+  VERSION = '0.0.1'
 end
