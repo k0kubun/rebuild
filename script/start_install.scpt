@@ -3,8 +3,8 @@
 -- Fist: Click Install Button
 set timeoutSeconds to 8.0
 
-my doWithTimeout("click UI Element \"Install\" of window 1 of application process \"Install Command Line Developer Toold\"", timeoutSeconds)
-my doWithTimeout("click UI Element \"Agree\" of window 1 of application process \"Install Command Line Developer Toold\"", timeoutSeconds)
+my doWithTimeout("click UI Element \"Install\" of window 1 of application process \"Install Command Line Developer Tools\"", timeoutSeconds)
+my doWithTimeout("click UI Element \"Agree\" of window 1 of application process \"Install Command Line Developer Tools\"", timeoutSeconds)
 
 on doWithTimeout(uiScript, timeoutSeconds)
   set endDate to (current date) + timeoutSeconds
