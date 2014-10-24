@@ -5,7 +5,13 @@ module Rebuild
   class CLI
     class << self
       def start
-        return show_usage if ARGV.length != 1
+        bootstrap = Bootstrap.new
+        if bootstrap.installed?
+          show_usage if ARGV.empty?
+        else
+          bootstrap.install
+        end
+        return if ARGV.empty?
 
         repo_path       = Repository.new(ARGV.first).fetch
         primary_scripts = STDIN.gets unless STDIN.isatty
