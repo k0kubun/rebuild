@@ -22,6 +22,9 @@ module Rebuild
             rebuild              # install command line tools
             rebuild USER/PROJECT # execute all scripts in GitHub repo's rebuild directory
 
+          Options:
+            -r, [--ref=GIT_REF]  # Default: master
+
         EOS
       end
     end
