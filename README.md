@@ -21,7 +21,6 @@ Then executes all of `/tmp/k0kubun/dotfiles/*.sh`.
 
 - revision lock
 - clone directory change option
-- do not re-clone
 - support script directory to put scripts
 - automatic xcode-select
 

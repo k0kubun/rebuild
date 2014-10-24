@@ -23,6 +23,11 @@ module Rebuild
     private
 
     def clone_archive
+      if File.exists?(repo_path)
+        puts "Directory already exists. Clone skipped."
+        return
+      end
+
       print "Cloning into #{repo_path}..."
       download_archive
       unzip_archive
