@@ -14,8 +14,8 @@ $ sudo gem install rebuild
 $ rebuild k0kubun/dotfiles
 ```
 
-The archive of [repository](https://github.com/k0kubun/dotfiles) is unzipped to `/tmp/dotfiles-master`.
-Then executes all of `/tmp/dotfiles-master/rebuild/*.sh`.
+The archive of [repository](https://github.com/k0kubun/dotfiles) is unzipped to `/tmp/dotfiles`.
+Then executes all of `/tmp/dotfiles/*.sh`.
 
 ## License
 
