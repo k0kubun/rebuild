@@ -20,7 +20,7 @@ Then executes all of `/tmp/dotfiles-master/rebuild/*.sh`.
 ### Resolve dependency
 
 ```bash
-rebuild <<-EOS
+rebuild k0kubun/dotfiles <<-EOS
   command_line_tools.sh
   brew.sh
 EOS
