@@ -1,9 +1,23 @@
 #!/usr/bin/env osascript
 
 -- Fist: Click Install Button
-delay 0.4
-tell application "System Events"
-  set installer to application process "Install Command Line Developer Tools"
-  click UI Element "Install" of window 1 of installer
-  click UI Element "Agree" of window 1 of installer
-end tell
+set timeoutSeconds to 8.0
+
+my doWithTimeout("click UI Element \"Install\" of window 1 of application process \"Install Command Line Developer Toold\"", timeoutSeconds)
+my doWithTimeout("click UI Element \"Agree\" of window 1 of application process \"Install Command Line Developer Toold\"", timeoutSeconds)
+
+on doWithTimeout(uiScript, timeoutSeconds)
+  set endDate to (current date) + timeoutSeconds
+  repeat
+    try
+      run script "tell application \"System Events\"
+" & uiScript & "
+end tell"
+      exit repeat
+    on error errorMessage
+      if ((current date) > endDate) then
+        error "Can not " & uiScript
+      end if
+    end try
+  end repeat
+end doWithTimeout
