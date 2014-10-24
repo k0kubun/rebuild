@@ -36,7 +36,7 @@ module Rebuild
     def execute_scpt(name)
       script_dir  = File.expand_path('../../../script', __FILE__)
       script_path = File.join(script_dir, "#{name}.scpt")
-      `osascript #{script_path}`
+      `sudo osascript #{script_path}`
     end
   end
 end
