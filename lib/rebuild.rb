@@ -1,5 +1,9 @@
 require "rebuild/version"
 
-module Rebuild
-  # Your code goes here...
+class Rebuild
+  def initialize(*args)
+  end
+
+  def install
+  end
 end
