@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Rebuild::VERSION
   spec.authors       = ["Takashi Kokubun"]
   spec.email         = ["takashikkbn@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Development environment rebuild toolkit}
+  spec.description   = %q{Development environment rebuild toolkit}
   spec.homepage      = "https://github.com/k0kubun/rebuild"
   spec.license       = "MIT"
 
