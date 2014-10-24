@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
 require 'rebuild/cli'
-Rebuild::CLI.run
+Rebuild::CLI.start

@@ -4,10 +4,14 @@ require 'unindent'
 module Rebuild
   class CLI
     class << self
-      def run
+      def start
         return show_usage if ARGV.length != 1
 
-        repo_path = Repository.new(ARGV.first).fetch
+        repo_path       = Repository.new(ARGV.first).fetch
+        primary_scripts = STDIN.gets unless STDIN.isatty
+
+        runner = Runner.new(repo_path, primary_scripts)
+        runner.run
       end
 
       private

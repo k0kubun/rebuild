@@ -10,7 +10,7 @@ module Rebuild
     end
 
     def fetch
-      return File.join(FETCH_DIRECTORY, 'dotfiles-master')
+      File.join(FETCH_DIRECTORY, 'dotfiles-master')
     end
   end
 end
