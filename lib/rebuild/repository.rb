@@ -13,10 +13,19 @@ module Rebuild
     end
 
     def fetch
+      create_userdir
       File.join(FETCH_DIRECTORY, 'dotfiles-master')
     end
 
     private
+
+    def create_userdir
+      puts "Create: #{userdir}"
+    end
+
+    def userdir
+      File.join(FETCH_DIRECTORY, @user)
+    end
 
     def archive_url
       "https://github.com/#{@user}/#{@repo}/archive/#{@reference}.zip"

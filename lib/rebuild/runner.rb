@@ -8,8 +8,7 @@ module Rebuild
     end
 
     def run
-      puts "run #{@repo_path}"
-      p @primary_scripts
+      puts "Run: #{@repo_path}"
     end
   end
 end
