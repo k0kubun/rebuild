@@ -3,12 +3,11 @@ require 'fileutils'
 
 module Rebuild
   class Repository
-    FETCH_REFERENCE = 'master'
     FETCH_DIRECTORY = '/tmp'
 
-    def initialize(path)
+    def initialize(path, directory)
       @user, @repo = path.split('/')
-      @reference   = FETCH_REFERENCE
+      @directory   = directory
 
       abort "Invalid repository `#{path}`" if @repo.nil?
     end

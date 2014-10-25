@@ -1,24 +1,31 @@
 require 'rebuild'
+require 'optparse'
 
 module Rebuild
   class CLI
     class << self
       def start
-        return show_usage if ARGV.empty? && CommandLineTools.installed?
+        options = {}
+
+        opt = OptionParser.new
+        opt.on('-d', '--directory=VAL') { |v| options[:directory] = v }
+
+        args = opt.parse!(ARGV)
+        return show_usage if args.empty? && CommandLineTools.installed?
 
         CommandLineTools.install unless CommandLineTools.installed?
         License.agree            unless License.agreed?
 
-        if ARGV.any?
+        if args.any?
           stdin = STDIN.gets unless STDIN.isatty
-          bootstrap(ARGV, stdin)
+          bootstrap(args, stdin, options)
         end
       end
 
       private
 
-      def bootstrap(args, stdin)
-        repo_path       = Repository.new(args.first).fetch
+      def bootstrap(args, stdin, options)
+        repo_path       = Repository.new(args.first, options[:directory]).fetch
         primary_scripts = stdin
 
         runner = Runner.new(repo_path, primary_scripts)
