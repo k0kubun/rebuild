@@ -1,9 +1,8 @@
 #!/usr/bin/env osascript
 
--- Third: Click Finish Button
-set timeoutSeconds to 2.0
-set uiScript to "click UI Element 1 of window 1 of application process \"Install Command Line Developer Tools\""
-my doWithTimeout(uiScript, timeoutSeconds)
+-- Click Done Button
+set timeoutSeconds to 8.0
+my doWithTimeout("click UI Element \"Done\" of window 1 of application process \"Install Command Line Developer Tools\"", timeoutSeconds)
 
 on doWithTimeout(uiScript, timeoutSeconds)
   set endDate to (current date) + timeoutSeconds
@@ -15,7 +14,7 @@ end tell"
       exit repeat
     on error errorMessage
       if ((current date) > endDate) then
-        error "Can not " & uiScript
+        error errorMessage & "; Can not " & uiScript
       end if
     end try
   end repeat

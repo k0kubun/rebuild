@@ -16,7 +16,7 @@ module Rebuild
         `xcode-select --install`
         execute_scpt('start_install')
         sleep 5 until installed?
-        execute_scpt('click_finish')
+        execute_scpt('click_done')
       end
 
       private
