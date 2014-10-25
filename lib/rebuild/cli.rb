@@ -6,9 +6,8 @@ module Rebuild
       def start
         return show_usage if ARGV.empty? && CommandLineTools.installed?
 
-        unless CommandLineTools.installed?
-          CommandLineTools.install
-        end
+        CommandLineTools.install unless CommandLineTools.installed?
+        License.agree            unless License.agreed?
 
         if ARGV.any?
           stdin = STDIN.gets unless STDIN.isatty
