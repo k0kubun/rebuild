@@ -5,22 +5,27 @@ module Rebuild
   class CLI
     class << self
       def start
-        bootstrap = Bootstrap.new
-        if bootstrap.installed?
-          show_usage if ARGV.empty?
-        else
-          bootstrap.install
-        end
-        return if ARGV.empty?
+        return show_usage if ARGV.empty? && CommandLineTools.installed?
 
-        repo_path       = Repository.new(ARGV.first).fetch
-        primary_scripts = STDIN.gets unless STDIN.isatty
+        unless CommandLineTools.installed?
+          CommandLineTools.install
+        end
+
+        if ARGV.any?
+          stdin = STDIN.gets unless STDIN.isatty
+          bootstrap(ARGV, stdin)
+        end
+      end
+
+      private
+
+      def bootstrap(args, stdin)
+        repo_path       = Repository.new(args.first).fetch
+        primary_scripts = stdin
 
         runner = Runner.new(repo_path, primary_scripts)
         runner.run
       end
-
-      private
 
       def show_usage
         puts <<-EOS.unindent
