@@ -14,7 +14,7 @@ module Rebuild
         obtain_accesibility
 
         `xcode-select --install`
-        execute_scpt('enable_gui_scripting.scpt')
+        execute_scpt('enable_gui_scripting')
         execute_scpt('start_install')
         sleep 5 until installed?
         execute_scpt('click_finish')
