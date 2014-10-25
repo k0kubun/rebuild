@@ -6,8 +6,10 @@ Development environment bootstrap automation toolkit for OSX
 
 ## What's this?
 
-In clean-installed OSX, git is unavailable but gem is available.
-Thus this gem provides a way to fetch GitHub repository archive and execute scripts in it.
+`rebuild` allows you to achieve mouse-free command line tools installation in OSX Yosemite.  
+Then `rebuild` clones your GitHub repository and runs all of your bootstrap scripts.  
+  
+Thus you can bootstraps & synchronize your environment by just executing `rebuild <username>/<repository>`
 
 ## Usage
 
