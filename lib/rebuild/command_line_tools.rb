@@ -28,7 +28,7 @@ module Rebuild
         puts "Require accessibility for Terminal.app to click buttons"
         sql = <<-SQL
           INSERT OR REPLACE INTO access
-          VALUES('kTCCServiceAccessibility','#{BUNDLE_IDENTIFIER}',0,1,1,NULL);
+          VALUES('kTCCServiceAccessibility','#{BUNDLE_IDENTIFIER}',0,1,0,NULL);
         SQL
         `sudo sqlite3 #{DATABASE} "#{sql}"`
       end
