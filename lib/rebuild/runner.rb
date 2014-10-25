@@ -10,7 +10,7 @@ module Rebuild
     def run
       script_paths.each do |path|
         puts "Running #{path}..."
-        `cat #{path} | bash`
+        `source #{path}`
       end
     end
 
