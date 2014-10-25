@@ -30,6 +30,9 @@ module Rebuild
           Commands:
             rebuild USER/PROJECT # execute all scripts in GitHub repo's root directory
 
+          Options:
+            -d, [--directory=/path/to/clone] # Default: /tmp/USER/PROJECT
+
         EOS
       end
 
