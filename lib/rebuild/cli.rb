@@ -1,5 +1,4 @@
 require 'rebuild'
-require 'unindent'
 
 module Rebuild
   class CLI
@@ -28,11 +27,16 @@ module Rebuild
       end
 
       def show_usage
-        puts <<-EOS.unindent
+        puts unindent(<<-EOS)
           Commands:
             rebuild USER/PROJECT # execute all scripts in GitHub repo's root directory
 
         EOS
+      end
+
+      def unindent(text)
+        indent = text.split("\n").select {|line| !line.strip.empty? }.map {|line| line.index(/[^\s]/) }.compact.min || 0
+        text.gsub(/^[[:blank:]]{#{indent}}/, '')
       end
     end
   end
