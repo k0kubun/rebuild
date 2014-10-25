@@ -35,10 +35,12 @@ module Rebuild
       def show_usage
         puts unindent(<<-EOS)
           Commands:
-            rebuild USER/PROJECT # execute all scripts in GitHub repo's root directory
+            rebuild                              # install command line tools, done
+            rebuild USER/PROJECT                 # execute all scripts in GitHub repo's root directory
 
           Options:
-            -d, [--directory=/path/to/clone] # Default: /tmp/USER/PROJECT
+            -d, [--directory=/path/to/clone]     # Default: /tmp/USER/PROJECT
+            -s, [--scriptdir=/script/placed/dir] # Default: '' (root)
 
         EOS
       end
