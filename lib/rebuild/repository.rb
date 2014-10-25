@@ -14,36 +14,27 @@ module Rebuild
     end
 
     def fetch
-      FileUtils.mkdir_p(user_path)
-      clone_archive
+      if File.exists?(repo_path)
+        clone_repository
+      else
+        sync_repository
+      end
 
       repo_path
     end
 
     private
 
-    def clone_archive
-      if File.exists?(repo_path)
-        puts "Directory already exists. Clone skipped."
-        return
-      end
-
-      print "Cloning into #{repo_path}..."
-      download_archive
-      unzip_archive
-      FileUtils.rm(archive_path)
-      puts " done."
+    def clone_repository
+      FileUtils.mkdir_p(user_path)
+      `git clone #{github_repository} #{repo_path}`
     end
 
-    def download_archive
-      `curl -Ls -o #{archive_path} #{archive_url}`
+    def sync_repository
     end
 
-    def unzip_archive
-      `unzip -o #{archive_path} -d #{user_path} > /dev/null`
-      unzipped_path = File.join(user_path, "#{@repo}-#{@reference}")
-      FileUtils.rm_rf(repo_path)
-      FileUtils.mv(unzipped_path, repo_path)
+    def github_repository
+      "git@github.com:#{@user}/#{@repo}"
     end
 
     def repo_path
@@ -52,14 +43,6 @@ module Rebuild
 
     def user_path
       File.join(FETCH_DIRECTORY, @user)
-    end
-
-    def archive_path
-      File.join(user_path, "#{@repo}.zip")
-    end
-
-    def archive_url
-      "https://github.com/#{@user}/#{@repo}/archive/#{@reference}.zip"
     end
   end
 end
