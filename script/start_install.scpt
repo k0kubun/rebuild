@@ -16,7 +16,7 @@ end tell"
       exit repeat
     on error errorMessage
       if ((current date) > endDate) then
-        error "Can not " & uiScript
+        error errorMessage & "; Can not " & uiScript
       end if
     end try
   end repeat
