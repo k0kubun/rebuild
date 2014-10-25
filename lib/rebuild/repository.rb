@@ -31,6 +31,22 @@ module Rebuild
     end
 
     def sync_repository
+      if dirty_repository?
+        puts 'Repository has unstaged changes. Sync skipped.'
+      else
+        run_with_repository('git pull origin master')
+      end
+    end
+
+    def dirty_repository?
+      run_with_repository('[[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]]')
+    end
+
+    def run_with_repository(script)
+      system(<<-EOS)
+        cd #{repo_path}
+        #{script}
+      EOS
     end
 
     def github_repository
