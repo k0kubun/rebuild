@@ -1,6 +1,8 @@
 # Rebuild
 
-Development environment bootstrap automator
+![](http://pic.k0kubun.com/EccWEeglRnobUo4.gif)
+
+Development environment bootstrap automator for OSX
 
 ## What's this?
 
