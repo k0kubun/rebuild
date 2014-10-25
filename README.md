@@ -56,7 +56,6 @@ Prior to 10.8 Mountain Lion, features except command line tools installation are
 ## TODO
 
 - revision lock
-- support script directory to put scripts
 - more flexible upstream pull
 
 ## License
