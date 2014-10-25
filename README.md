@@ -33,7 +33,7 @@ Then executes all of `/tmp/k0kubun/dotfiles/*.sh`.
 ## Supported OS
 
 - 10.10 Yosemite
-- 10.9 Marverics
+- 10.9 Maverics
 
 Prior to 10.8 Mountain Lion, features except command line tools installation are still supported.
 
