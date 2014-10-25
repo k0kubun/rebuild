@@ -1,8 +1,8 @@
 # Rebuild
 
-![](http://pic.k0kubun.com/EccWEeglRnobUo4.gif)
+Development environment bootstrap automation toolkit for OSX.
 
-Development environment bootstrap automator for OSX
+![](http://pic.k0kubun.com/EccWEeglRnobUo4.gif)
 
 ## What's this?
 
@@ -18,6 +18,13 @@ $ rebuild k0kubun/dotfiles
 
 The archive of [repository](https://github.com/k0kubun/dotfiles) is unzipped to `/tmp/k0kubun/dotfiles`.
 Then executes all of `/tmp/k0kubun/dotfiles/*.sh`.
+
+## Supported OS
+
+- 10.10 Yosemite
+- 10.9 Marverics
+
+Prior to 10.8 Mountain Lion, features except command line tools installation are still supported.
 
 ## TODO
 
