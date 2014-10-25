@@ -3,7 +3,7 @@ require 'fileutils'
 
 module Rebuild
   class Repository
-    FETCH_DIRECTORY = '/tmp'
+    DEFAULT_DIRECTORY = '/tmp'
 
     def initialize(path, directory)
       @user, @repo = path.split('/')
@@ -25,7 +25,7 @@ module Rebuild
     private
 
     def clone_repository
-      FileUtils.mkdir_p(user_path)
+      FileUtils.mkdir_p(upper_directory)
       `git clone #{github_repository} #{repo_path}`
     end
 
@@ -53,11 +53,27 @@ module Rebuild
     end
 
     def repo_path
-      File.join(user_path, @repo)
+      File.join(upper_directory, root_directory)
+    end
+
+    def root_directory
+      if @directory
+        @directory.gsub(/\/$/, '').match(/[^\/]+$/).to_s
+      else
+        @repo
+      end
+    end
+
+    def upper_directory
+      if @directory
+        @directory.gsub(/[^\/]+\/?$/, '')
+      else
+        user_path
+      end
     end
 
     def user_path
-      File.join(FETCH_DIRECTORY, @user)
+      File.join(DEFAULT_DIRECTORY, @user)
     end
   end
 end
