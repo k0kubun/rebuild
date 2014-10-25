@@ -9,6 +9,7 @@ module Rebuild
 
         opt = OptionParser.new
         opt.on('-d', '--directory=VAL') { |v| options[:directory] = v }
+        opt.on('-s', '--scriptdir=VAL') { |v| options[:scriptdir] = v }
 
         args = opt.parse!(ARGV)
         return show_usage if args.empty? && CommandLineTools.installed?
@@ -28,7 +29,7 @@ module Rebuild
         repo_path       = Repository.new(args.first, options[:directory]).fetch
         primary_scripts = stdin
 
-        runner = Runner.new(repo_path, primary_scripts)
+        runner = Runner.new(repo_path, primary_scripts, options[:scriptdir])
         runner.run
       end
 
