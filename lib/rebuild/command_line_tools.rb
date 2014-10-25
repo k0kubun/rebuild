@@ -11,11 +11,12 @@ module Rebuild
       end
 
       def install
+        `xcode-select --install`
+
+        # NOTE: This MUST be after `xcode-select --install`.
         obtain_accesibility
 
-        `xcode-select --install`
         execute_scpt('start_install')
-
         sleep 5 until installed?
         execute_scpt('click_finish')
       end
