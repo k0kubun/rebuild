@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Rebuild::VERSION
   spec.authors       = ["Takashi Kokubun"]
   spec.email         = ["takashikkbn@gmail.com"]
-  spec.summary       = %q{Development environment bootstrap automator for OSX}
-  spec.description   = %q{Development environment bootstrap automator for OSX}
+  spec.summary       = %q{Full-automatic command line tools installer for OSX Yosemite}
+  spec.description   = %q{Full-automatic command line tools installer for OSX Yosemite}
   spec.homepage      = "https://github.com/k0kubun/rebuild"
   spec.license       = "MIT"
 

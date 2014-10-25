@@ -1,6 +1,6 @@
 # Rebuild
 
-Development environment bootstrap automation toolkit for OSX.
+Development environment bootstrap automation toolkit for OSX
 
 ![](http://pic.k0kubun.com/EccWEeglRnobUo4.gif)
 
