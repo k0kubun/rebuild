@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Takashi Kokubun"]
   spec.email         = ["takashikkbn@gmail.com"]
   spec.summary       = %q{Full-automatic command line tools installer for OSX Yosemite}
-  spec.description   = %q{Rebuild allows you to achieve mouse-free command line tools installation in OSX Yosemite. Then `rebuild` clones your GitHub repository and runs all of your bootstrap scripts. Thus you can setup or synchronize your environment by just executing `rebuild <username>/<project>`.}
+  spec.description   = %q{This gem allows you to achieve mouse-free command line tools installation in OSX Yosemite. Then `rebuild` clones your GitHub repository and runs all of your bootstrap scripts. Thus you can setup or synchronize your environment by just executing `rebuild [username]/[project]`.}
   spec.homepage      = "https://github.com/k0kubun/rebuild"
   spec.license       = "MIT"
 
