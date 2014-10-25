@@ -50,7 +50,7 @@ module Rebuild
     end
 
     def github_repository
-      "git@github.com:#{@user}/#{@repo}"
+      "https://github.com/#{@user}/#{@repo}"
     end
 
     def repo_path
