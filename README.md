@@ -35,6 +35,10 @@ Then executes all of `/tmp/k0kubun/dotfiles/*.sh`.
 ## Options
 
 ```bash
+# By default, git pull is not executed.
+# If you want to synchronize repository before running scripts, add -f.
+$ rebuild -f
+
 # Repository will be cloned to ~/src/github.com/k0kubun/dotfiles
 $ rebuild -d ~/src/github.com/k0kubun/dotfiles
 

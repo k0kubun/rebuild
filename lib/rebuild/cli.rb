@@ -40,6 +40,7 @@ module Rebuild
             rebuild USER/PROJECT                 # execute all scripts in GitHub repo's root directory
 
           Options:
+            -f, [--force-update]                 # By default, git pull is not executed
             -d, [--directory=/path/to/clone]     # Default: /tmp/USER/PROJECT
             -s, [--scriptdir=/script/placed/dir] # Default: '' (root)
 
