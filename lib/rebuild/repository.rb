@@ -15,9 +15,9 @@ module Rebuild
 
     def fetch
       if File.exists?(repo_path)
-        clone_repository
-      else
         sync_repository
+      else
+        clone_repository
       end
 
       repo_path
