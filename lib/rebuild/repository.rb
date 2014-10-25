@@ -5,9 +5,10 @@ module Rebuild
   class Repository
     DEFAULT_DIRECTORY = '/tmp'
 
-    def initialize(path, directory)
+    def initialize(path, options)
       @user, @repo = path.split('/')
-      @directory   = directory
+      @directory   = options[:directory]
+      @update      = options[:update]
 
       abort "Invalid repository `#{path}`" if @repo.nil?
     end
@@ -30,6 +31,8 @@ module Rebuild
     end
 
     def sync_repository
+      return unless @update
+
       if dirty_repository?
         puts 'Repository has unstaged changes. Sync skipped.'
       else

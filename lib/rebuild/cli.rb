@@ -3,11 +3,16 @@ require 'optparse'
 
 module Rebuild
   class CLI
+    DEFAULT_OPTIONS = {
+      update: false,
+    }
+
     class << self
       def start
-        options = {}
+        options = DEFAULT_OPTIONS
 
         opt = OptionParser.new
+        opt.on('-f', '--force-update')  { |v| options[:update] = true }
         opt.on('-d', '--directory=VAL') { |v| options[:directory] = v }
         opt.on('-s', '--scriptdir=VAL') { |v| options[:scriptdir] = v }
 
@@ -26,7 +31,7 @@ module Rebuild
       private
 
       def bootstrap(args, stdin, options)
-        repo_path       = Repository.new(args.first, options[:directory]).fetch
+        repo_path       = Repository.new(args.first, options).fetch
         primary_scripts = stdin
 
         runner = Runner.new(repo_path, primary_scripts, options[:scriptdir])
