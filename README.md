@@ -32,6 +32,16 @@ $ rebuild k0kubun/dotfiles
 After installing command line tools, the archive of [repository](https://github.com/k0kubun/dotfiles) is unzipped to `/tmp/k0kubun/dotfiles`.
 Then executes all of `/tmp/k0kubun/dotfiles/*.sh`.
 
+## Options
+
+```bash
+# Repository will be cloned to ~/src/github.com/k0kubun/dotfiles
+$ rebuild -d ~/src/github.com/k0kubun/dotfiles
+
+# Run /tmp/k0kubun/dotfiles/script/*.sh instead of /tmp/k0kubun/dotfiles/*.sh
+$ rebuild -s script
+```
+
 ## Supported OS
 
 - 10.10 Yosemite
