@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-echo -n "Password: "
-
-stty -echo
-read password
-stty echo
+read -s -p "Password:" password
+echo
 
 install_url=https://raw.githubusercontent.com/Homebrew/install/master/install
 temp_script=/tmp/brew_installer
