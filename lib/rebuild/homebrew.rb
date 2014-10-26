@@ -4,7 +4,7 @@ module Rebuild
   class Homebrew
     class << self
       def installed?
-        system('which brew')
+        system('which brew > /dev/null')
       end
 
       def install

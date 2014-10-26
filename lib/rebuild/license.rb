@@ -8,7 +8,7 @@ module Rebuild
       end
 
       def agree
-        Script.execute_exp('agree_license')
+        Script.execute_exp('agree_license', sudo: true)
       end
     end
   end

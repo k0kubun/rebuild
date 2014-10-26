@@ -1,7 +1,7 @@
 #!/usr/bin/env expect -f
 
 set timeout -1
-spawn ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+spawn ruby -e "\"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
 
 expect {
   "Press RETURN to continue or any other key to abort"

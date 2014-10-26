@@ -8,9 +8,9 @@ module Rebuild
         `sudo osascript #{script_path}`
       end
 
-      def execute_exp(name)
+      def execute_exp(name, sudo: false)
         script_path = File.join(script_dir, "#{name}.exp")
-        `sudo expect -f #{script_path}`
+        `#{'sudo' if sudo} expect -f #{script_path}`
       end
 
       private
