@@ -17,9 +17,9 @@ module Rebuild
         obtain_accesibility
 
         `xcode-select --install`
-        execute_scpt('start_install')
+        Script.execute_scpt('start_install')
         sleep 5 until installed?
-        execute_scpt('click_done')
+        Script.execute_scpt('click_done')
       end
 
       private
@@ -34,12 +34,6 @@ module Rebuild
           SQL
           `sudo sqlite3 #{DATABASE} "#{sql}"`
         end
-      end
-
-      def execute_scpt(name)
-        script_dir  = File.expand_path('../../../script', __FILE__)
-        script_path = File.join(script_dir, "#{name}.scpt")
-        `sudo osascript #{script_path}`
       end
     end
   end
