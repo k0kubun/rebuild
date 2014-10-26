@@ -12,9 +12,11 @@ module Rebuild
       return no_script_found if script_paths.empty?
 
       script_paths.each do |path|
-        puts "Running #{path}..."
+        Logger.info("Running #{path}...")
         system('sh', path)
       end
+
+      Logger.finish("Finished to rebuild #{absolute_script_directory}")
     end
 
     private
