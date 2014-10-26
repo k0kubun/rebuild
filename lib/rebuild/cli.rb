@@ -4,7 +4,8 @@ require 'optparse'
 module Rebuild
   class CLI
     DEFAULT_OPTIONS = {
-      update: false,
+      update:  false,
+      version: false,
     }
 
     class << self
@@ -12,11 +13,13 @@ module Rebuild
         options = DEFAULT_OPTIONS
 
         opt = OptionParser.new
+        opt.on('-v', '--version')       { |v| options[:version] = true }
         opt.on('-f', '--force-update')  { |v| options[:update] = true }
         opt.on('-d', '--directory=VAL') { |v| options[:directory] = v }
         opt.on('-s', '--scriptdir=VAL') { |v| options[:scriptdir] = v }
 
         args = opt.parse!(ARGV)
+        return print_version if options[:version]
         return show_usage if args.empty? && CommandLineTools.installed?
 
         CommandLineTools.install unless CommandLineTools.installed?
@@ -70,11 +73,16 @@ module Rebuild
             rebuild brew           start homebrew installation and press ENTER for you
 
           Options:
+            -v, [--version]                        Print version
             -f, [--force-update]                   By default, git pull is not executed
             -d, [--directory=/path/to/clone]       Default: /tmp/USER/PROJECT
             -s, [--scriptdir=/script/placed/dir]   Default: '' (root)
 
         EOS
+      end
+
+      def print_version
+        puts "Rebuild version #{VERSION}"
       end
 
       def unindent(text)
