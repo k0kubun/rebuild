@@ -26,6 +26,7 @@ $ gem install rebuild
 $ rebuild [username]/[repository]
 ```
 
+**No need to touch your mouse.** Rebuild will click buttons for you in command line tools installation.
 Just typing the command allows you to reproduce your development environment.
 
 ### Sync multiple environments
