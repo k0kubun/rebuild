@@ -29,7 +29,7 @@ module Rebuild
         command = args.first
 
         if command.include?('/')
-          stdin = STDIN.gets unless STDIN.isatty
+          stdin = STDIN.read unless STDIN.isatty
           bootstrap(command, stdin, options)
         else
           run_command(command)
@@ -40,7 +40,7 @@ module Rebuild
 
       def bootstrap(repo, stdin, options)
         repo_path       = Repository.new(repo, options).fetch
-        primary_scripts = stdin
+        primary_scripts = (stdin || '').split
 
         runner = Runner.new(repo_path, primary_scripts, options[:scriptdir])
         runner.run
