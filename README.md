@@ -21,7 +21,7 @@ $ gem install rebuild
 
 ### Clean-installed bootstrap
 
-```
+```bash
 # For example: rebuild k0kubun/dotfiles
 $ rebuild [username]/[repository]
 ```
@@ -29,6 +29,8 @@ $ rebuild [username]/[repository]
 Just typing the command allows you to reproduce your development environment.
 
 ### Sync multiple environments
+
+![](http://pic.k0kubun.com/treCcBeBSil20o7.gif)
 
 ```bash
 # force update repository by `-f`
@@ -52,7 +54,6 @@ $ rebuild -d ~/src/github.com/k0kubun/dotfiles
 $ rebuild -s script
 
 # You can choose which script to run first by shell pipeline
-echo "first.sh second.sh" | rebuild
 rebuild <<-EOS
   first.sh
   second.sh
