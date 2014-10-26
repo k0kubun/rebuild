@@ -7,30 +7,35 @@ Development environment bootstrap automation toolkit for OSX
 ## What's this?
 
 `rebuild` allows you to achieve mouse-free command line tools installation in OSX Yosemite.  
-Then `rebuild` clones your GitHub repository and runs all of your bootstrap scripts.  
+And `rebuild` clones your GitHub repository and runs all of your bootstrap scripts.  
   
 You can setup or synchronize your environment by just executing `rebuild <username>/<project>`
 
+## Installation
+
+```bash
+$ gem install rebuild
+```
+
 ## Usage
 
-### Full automated command line tools installation
+### Clean-installed bootstrap
 
-```bash
-$ sudo gem install rebuild
-$ rebuild
+```
+# For example: rebuild k0kubun/dotfiles
+$ rebuild [username]/[repository]
 ```
 
-You can install command line tools to clean-installed Yosemite only by typing `rebuild`.
+Just typing the command allows you to reproduce your development environment.
 
-### Environment Bootstrap
+### Sync multiple environments
 
 ```bash
-$ sudo gem install rebuild
-$ rebuild k0kubun/dotfiles
+# force update repository by `-f`
+$ rebuild -f k0kubun/dotfiles
 ```
 
-After installing command line tools, the archive of [repository](https://github.com/k0kubun/dotfiles) is unzipped to `/tmp/k0kubun/dotfiles`.
-Then executes all of `/tmp/k0kubun/dotfiles/*.sh`.
+If you manage your development environment, you can use this gem to synchronize multiple environments.
 
 ## Options
 
@@ -59,11 +64,6 @@ EOS
 - 10.9 Maverics
 
 Prior to 10.8 Mountain Lion, features except command line tools installation are still supported.
-
-## TODO
-
-- revision lock
-- more flexible upstream pull
 
 ## License
 
