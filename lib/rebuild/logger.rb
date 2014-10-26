@@ -19,7 +19,7 @@ module Rebuild
 
       def fatal(text)
         puts red("Error: #{text}")
-        exit(1)
+        exit 1
       end
 
       private
