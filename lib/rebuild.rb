@@ -1,10 +1,9 @@
-require 'rebuild/cli'
-require 'rebuild/command_line_tools'
-require 'rebuild/license'
-require 'rebuild/repository'
-require 'rebuild/runner'
-require 'rebuild/script'
-require 'rebuild/version'
+# Require necessary files
+lib_rebuild = File.expand_path('../rebuild', __FILE__)
+Dir.glob(File.join(lib_rebuild, '*.rb')).each do |lib_path|
+  lib = lib_path.split('/').last.gsub('.rb$', '')
+  require "rebuild/#{lib}"
+end
 
 module Rebuild
 end
