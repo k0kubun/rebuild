@@ -56,12 +56,12 @@ module Rebuild
     end
 
     def repo_path
-      File.join(upper_directory, root_directory)
+      File.join(upper_directory, directory_name)
     end
 
-    def root_directory
+    def directory_name
       if @directory
-        @directory.gsub(/\/$/, '').match(/[^\/]+$/).to_s
+        expanded_directory.gsub(/\/$/, '').match(/[^\/]+$/).to_s
       else
         @repo
       end
@@ -69,10 +69,14 @@ module Rebuild
 
     def upper_directory
       if @directory
-        @directory.gsub(/[^\/]+\/?$/, '')
+        expanded_directory.gsub(/[^\/]+\/?$/, '')
       else
         user_path
       end
+    end
+
+    def expanded_directory
+      File.expand_path(@directory, `pwd`)
     end
 
     def user_path
