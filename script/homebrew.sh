@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 read -s -p "Password:" password
-echo
 
 install_url=https://raw.githubusercontent.com/Homebrew/install/master/install
 temp_script=/tmp/brew_installer
@@ -9,7 +8,7 @@ temp_script=/tmp/brew_installer
 # FIXME: This is not intended saving. I don't know how to spawn: ruby -e "$(..)"
 curl -fsSL $install_url > $temp_script
 
-expect -c '
+expect -c <<-EOS
 set timeout -1
 spawn ruby /tmp/brew_installer
 
@@ -21,10 +20,10 @@ expect {
   }
   "Password:"
   {
-    send "$password\r"
+    send "${password}\r"
     exp_continue
   }
 }
-'
+EOS
 
 rm $temp_script
