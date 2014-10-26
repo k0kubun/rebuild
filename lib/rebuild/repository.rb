@@ -76,7 +76,7 @@ module Rebuild
     end
 
     def expanded_directory
-      File.expand_path(@directory, `pwd`)
+      File.expand_path(@directory, `pwd`.strip)
     end
 
     def user_path
