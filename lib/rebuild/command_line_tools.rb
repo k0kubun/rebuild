@@ -16,10 +16,13 @@ module Rebuild
       def install
         obtain_accesibility
 
+        Logger.info('Running command line tools installation...')
         `xcode-select --install`
+
         Script.execute_scpt('start_install')
         sleep 5 until installed?
         Script.execute_scpt('click_done')
+        Logger.success('Finished to install command line tools')
       end
 
       private
