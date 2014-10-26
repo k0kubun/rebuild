@@ -35,7 +35,8 @@ Just typing the command allows you to reproduce your development environment.
 $ rebuild -f k0kubun/dotfiles
 ```
 
-If you manage your development environment, you can use this gem to synchronize multiple environments.
+If you manage your development environment on GitHub repository,
+you can use this gem to synchronize multiple environments.
 
 ## Options
 
