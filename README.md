@@ -2,7 +2,7 @@
 
 Development environment bootstrap automation toolkit for OSX
 
-![](http://pic.k0kubun.com/EccWEeglRnobUo4.gif)
+![](http://pic.k0kubun.com/174syGrQYpdTo0N.gif)
 
 ## What's this?
 
