@@ -1,5 +1,6 @@
 require 'rebuild'
 require 'optparse'
+require 'unindent'
 
 module Rebuild
   class CLI
@@ -49,7 +50,10 @@ module Rebuild
       def run_command(command)
         case command
         when 'brew'
+          # This is a secret feature because it is not so useful now
           command_brew
+        when 'config'
+          command_config
         else
           puts "Command #{command} is not found."
           puts
@@ -65,11 +69,20 @@ module Rebuild
         end
       end
 
+      def command_config
+        if GitConfig.has_rebuild_config?
+          puts '.gitconfig is already initialized for rebuild.'
+        else
+          GitConfig.add_rebuild_config
+        end
+      end
+
       def show_usage
-        puts unindent(<<-EOS)                                                            # <- 80 columns
+        puts <<-EOS.unindent
           Commands:
             rebuild                install command line tools, done
             rebuild USER/PROJECT   execute all scripts in GitHub repo's root directory
+            rebuild config         add rebuild config template to ~/.gitconfig
 
           Options:
             -v, [--version]                        Print version
