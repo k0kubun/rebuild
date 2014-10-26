@@ -22,7 +22,7 @@ module Rebuild
         Script.execute_scpt('start_install')
         sleep 5 until installed?
         Script.execute_scpt('click_done')
-        Logger.success('Finished to install command line tools')
+        Logger.finish('Finished to install command line tools')
       end
 
       private
