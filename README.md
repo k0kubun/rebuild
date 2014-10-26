@@ -44,6 +44,13 @@ $ rebuild -d ~/src/github.com/k0kubun/dotfiles
 
 # Run /tmp/k0kubun/dotfiles/script/*.sh instead of /tmp/k0kubun/dotfiles/*.sh
 $ rebuild -s script
+
+# You can choose which script to run first by shell pipeline
+echo "first.sh second.sh" | rebuild
+rebuild <<-EOS
+  first.sh
+  second.sh
+EOS
 ```
 
 ## Supported OS
