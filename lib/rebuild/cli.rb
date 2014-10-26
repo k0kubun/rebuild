@@ -70,7 +70,6 @@ module Rebuild
           Commands:
             rebuild                install command line tools, done
             rebuild USER/PROJECT   execute all scripts in GitHub repo's root directory
-            rebuild brew           start homebrew installation and press ENTER for you
 
           Options:
             -v, [--version]                        Print version
