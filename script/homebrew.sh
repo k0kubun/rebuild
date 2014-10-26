@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
+echo -n "Password: "
+
+stty -echo
+read password
+stty echo
+
 install_url=https://raw.githubusercontent.com/Homebrew/install/master/install
 temp_script=/tmp/brew_installer
+
+# FIXME: This is not intended saving. I don't know how to spawn: ruby -e "$(..)"
 curl -fsSL $install_url > $temp_script
 
 expect -c '
@@ -12,6 +20,11 @@ expect {
   "Press RETURN to continue or any other key to abort"
   {
     send "\r"
+    exp_continue
+  }
+  "Password:"
+  {
+    send "$password\r"
     exp_continue
   }
 }
