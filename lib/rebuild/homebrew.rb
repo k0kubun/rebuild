@@ -8,7 +8,7 @@ module Rebuild
       end
 
       def install
-        Script.execute_exp('homebrew')
+        Script.execute_sh('homebrew')
       end
     end
   end

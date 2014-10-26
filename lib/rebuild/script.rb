@@ -13,6 +13,11 @@ module Rebuild
         `#{'sudo' if sudo} expect -f #{script_path}`
       end
 
+      def execute_sh(name)
+        script_path = File.join(script_dir, "#{name}.sh")
+        system('sh', script_path)
+      end
+
       private
 
       def script_dir
