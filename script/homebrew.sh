@@ -8,22 +8,22 @@ temp_script=/tmp/brew_installer
 # FIXME: This is not intended saving. I don't know how to spawn: ruby -e "$(..)"
 curl -fsSL $install_url > $temp_script
 
-expect -c <<-EOS
+expect -c "
 set timeout -1
 spawn ruby /tmp/brew_installer
 
 expect {
-  "Press RETURN to continue or any other key to abort"
+  \"Press RETURN to continue or any other key to abort\"
   {
-    send "\r"
+    send \"\r\"
     exp_continue
   }
-  "Password:"
+  \"Password:\"
   {
-    send "${password}\r"
+    send \"${password}\r\"
     exp_continue
   }
 }
-EOS
+"
 
 rm $temp_script
