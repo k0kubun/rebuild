@@ -63,16 +63,16 @@ module Rebuild
       end
 
       def show_usage
-        puts unindent(<<-EOS)
+        puts unindent(<<-EOS)                                                            # <- 80 columns
           Commands:
-            rebuild                              # install command line tools, done
-            rebuild USER/PROJECT                 # execute all scripts in GitHub repo's root directory
-            rebuild brew                         # start homebrew installation and press ENTER for you
+            rebuild                install command line tools, done
+            rebuild USER/PROJECT   execute all scripts in GitHub repo's root directory
+            rebuild brew           start homebrew installation and press ENTER for you
 
           Options:
-            -f, [--force-update]                 # By default, git pull is not executed
-            -d, [--directory=/path/to/clone]     # Default: /tmp/USER/PROJECT
-            -s, [--scriptdir=/script/placed/dir] # Default: '' (root)
+            -f, [--force-update]                   By default, git pull is not executed
+            -d, [--directory=/path/to/clone]       Default: /tmp/USER/PROJECT
+            -s, [--scriptdir=/script/placed/dir]   Default: '' (root)
 
         EOS
       end
