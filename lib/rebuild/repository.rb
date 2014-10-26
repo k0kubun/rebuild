@@ -26,6 +26,7 @@ module Rebuild
     private
 
     def clone_repository
+      Logger.info("Create repository to #{repo_path}...")
       FileUtils.mkdir_p(upper_directory)
       `git clone #{github_repository} #{repo_path}`
     end

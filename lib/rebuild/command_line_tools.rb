@@ -26,7 +26,8 @@ module Rebuild
 
       # Enable Security & Privacy > Privacy > Accessibility for Terminal.app.
       def obtain_accesibility
-        puts 'Require accessibility for terminal to click buttons'
+        Logger.info('Obtained accessibility for terminal to click buttons')
+
         SUPPORTED_TERMINALS.each do |bundle_identifier|
           sql = <<-SQL
             INSERT OR REPLACE INTO access
