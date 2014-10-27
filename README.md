@@ -63,6 +63,8 @@ EOS
 
 ## Config
 
+![](http://pic.k0kubun.com/wsrFmSZhBOug1Yj.gif)
+
 You can skip choosing option by ~/.gitconfig
 
 ```aconf
