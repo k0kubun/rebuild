@@ -5,6 +5,7 @@ require 'unindent'
 module Rebuild
   class CLI
     DEFAULT_OPTIONS = {
+      help:    false,
       update:  false,
       version: false,
     }
@@ -16,12 +17,14 @@ module Rebuild
         options = DEFAULT_OPTIONS.merge(@gitconfig.rebuild_config)
 
         opt = OptionParser.new
+        opt.on('-h', '--help')          { |v| options[:help] = true }
         opt.on('-v', '--version')       { |v| options[:version] = true }
         opt.on('-f', '--force-update')  { |v| options[:update] = true }
         opt.on('-d', '--directory=VAL') { |v| options[:directory] = v }
         opt.on('-s', '--scriptdir=VAL') { |v| options[:scriptdir] = v }
 
         args = opt.parse!(ARGV)
+        return show_usage    if options[:help]
         return print_version if options[:version]
 
         CommandLineTools.install unless CommandLineTools.installed?
@@ -89,6 +92,7 @@ module Rebuild
             rebuild config         add rebuild config template to ~/.gitconfig
 
           Options:
+            -h, [--help]                           Show this
             -v, [--version]                        Print version
             -f, [--force-update]                   By default, git pull is not executed
             -d, [--directory=/path/to/clone]       Default: /tmp/USER/PROJECT
