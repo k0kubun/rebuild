@@ -34,10 +34,19 @@ module Rebuild
     end
 
     def rebuild_config
-      @config.params["rebuild"] || {}
+      symbolize_keys(@config.params["rebuild"] || {})
     end
 
     private
+
+    def symbolize_keys(hash)
+      symbolized = {}
+
+      hash.each do |key, value|
+        symbolized[key.to_sym] = value
+      end
+      symbolized
+    end
 
     def gitconfig_path
       File.expand_path('~/.gitconfig')
