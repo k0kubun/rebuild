@@ -6,15 +6,16 @@ module Rebuild
   class GitConfig
     include Singleton
 
-    def self.gitconfig_path
-      File.expand_path('~/.gitconfig')
+    def initialize
+      return unless File.exists?(gitconfig_path)
+      @config = ParseConfig.new(gitconfig_path)
     end
 
-    def self.has_rebuild_config?
-      instance.rebuild_config.nil?.!
+    def has_rebuild_config?
+      @config.params["rebuild"] != nil
     end
 
-    def self.add_rebuild_config
+    def add_rebuild_config
       git_config =
         if File.exists?(gitconfig_path)
           File.read(gitconfig_path)
@@ -32,14 +33,14 @@ module Rebuild
       Logger.info('Succeed to update ~/.gitconfig')
     end
 
-    def initialize
-      return unless File.exists?(GitConfig.gitconfig_path)
-
-      @config = ParseConfig.new(GitConfig.gitconfig_path)
+    def rebuild_config
+      @config.params["rebuild"] || {}
     end
 
-    def rebuild_config
-      @config.params["rebuild"]
+    private
+
+    def gitconfig_path
+      File.expand_path('~/.gitconfig')
     end
   end
 end

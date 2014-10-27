@@ -11,7 +11,8 @@ module Rebuild
 
     class << self
       def start
-        options = DEFAULT_OPTIONS
+        @gitconfig = GitConfig.instance
+        options = DEFAULT_OPTIONS.merge(@gitconfig.rebuild_config)
 
         opt = OptionParser.new
         opt.on('-v', '--version')       { |v| options[:version] = true }
@@ -70,10 +71,10 @@ module Rebuild
       end
 
       def command_config
-        if GitConfig.has_rebuild_config?
+        if @gitconfig.has_rebuild_config?
           puts '.gitconfig is already initialized for rebuild.'
         else
-          GitConfig.add_rebuild_config
+          @gitconfig.add_rebuild_config
         end
       end
 
