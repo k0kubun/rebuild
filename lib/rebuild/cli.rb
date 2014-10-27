@@ -48,7 +48,7 @@ module Rebuild
 
       def bootstrap(repo, stdin, options)
         repo_path       = Repository.new(repo, options).fetch
-        primary_scripts = (stdin || '').split
+        primary_scripts = (stdin || options[:dependency] || '').split
 
         runner = Runner.new(repo_path, primary_scripts, options[:scriptdir])
         runner.run

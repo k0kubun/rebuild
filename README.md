@@ -83,6 +83,9 @@ You can skip choosing option by ~/.gitconfig
 
   # cloned directory path
   directory = ~/src/github.com/k0kubun/dotfiles
+
+  # selected scripts are executed primarily in this order
+  dependency = brew.sh ruby.sh
 ```
 
 ## Supported OS
