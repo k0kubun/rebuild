@@ -12,6 +12,7 @@ module Rebuild
     end
 
     def has_rebuild_config?
+      return false unless @config
       @config.params["rebuild"] != nil
     end
 
@@ -42,6 +43,7 @@ module Rebuild
     end
 
     def rebuild_config
+      return {} unless @config
       symbolize_keys(@config.params["rebuild"] || {})
     end
 
