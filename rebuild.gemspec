@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "unindent", "~> 1.0"
-  spec.add_runtime_dependency "parseconfig", "~> 1.0.6"
+  spec.add_runtime_dependency "parseconfig", "~> 1.0"
   spec.add_development_dependency "pry", "~> 0.10"
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
