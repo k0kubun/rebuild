@@ -11,6 +11,7 @@ module Rebuild
 
     class << self
       def start
+        @installed = CommandLineTools.installed?
         @gitconfig = GitConfig.instance
         options = DEFAULT_OPTIONS.merge(@gitconfig.rebuild_config)
 
@@ -22,19 +23,21 @@ module Rebuild
 
         args = opt.parse!(ARGV)
         return print_version if options[:version]
-        return show_usage if args.empty? && CommandLineTools.installed?
 
         CommandLineTools.install unless CommandLineTools.installed?
         License.agree            unless License.agreed?
 
-        return if args.empty?
-        command = args.first
-
-        if command.include?('/')
-          stdin = STDIN.read unless STDIN.isatty
-          bootstrap(command, stdin, options)
+        stdin = STDIN.read unless STDIN.isatty
+        if args.empty?
+          if options[:repo]
+            bootstrap(options[:repo], stdin, options)
+          elsif @installed
+            show_usage
+          end
+        elsif args.first.include?('/')
+          bootstrap(args.first, stdin, options)
         else
-          run_command(command)
+          run_command(args.first)
         end
       end
 

@@ -68,6 +68,10 @@ EOS
 
 Prior to 10.8 Mountain Lion, features except command line tools installation are still supported.
 
+## TODO
+
+- Write test with rspec
+
 ## License
 
 MIT License

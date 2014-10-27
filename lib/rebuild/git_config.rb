@@ -24,9 +24,17 @@ module Rebuild
         end
       rebuild_config = <<-EOS.unindent
         [rebuild]
-          update    = false
+          # if true, everytime git pull
+          update = false
+
+          # you can change script run directory
           scriptdir = /
-          directory = #{File.expand_path('~/src/dotfiles')}
+
+          # if present, you can `rebuild` without argument
+          # repo = username/dotfiles
+
+          # cloned directory path
+          # directory = ~/src/dotfiles
       EOS
 
       File.write(gitconfig_path, "#{git_config}\n#{rebuild_config}")
@@ -43,9 +51,21 @@ module Rebuild
       symbolized = {}
 
       hash.each do |key, value|
-        symbolized[key.to_sym] = value
+        symbolized[key.to_sym] = normalize_value(value)
       end
       symbolized
+    end
+
+    # TODO: Migrate from parseconfig
+    def normalize_value(value)
+      case value
+      when 'true'
+        true
+      when 'false'
+        false
+      else
+        value
+      end
     end
 
     def gitconfig_path
