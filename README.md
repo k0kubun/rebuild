@@ -61,6 +61,28 @@ rebuild <<-EOS
 EOS
 ```
 
+## Config
+
+You can skip choosing option by ~/.gitconfig
+
+```aconf
+# ~/.gitconfig
+# You can append config template by `rebuild config`
+
+[rebuild]
+  # if true, everytime git pull
+  update = false
+
+  # you can change script run directory
+  scriptdir = script
+
+  # if present, you can `rebuild` without argument
+  repo = k0kubun/dotfiles
+
+  # cloned directory path
+  directory = ~/src/github.com/k0kubun/dotfiles
+```
+
 ## Supported OS
 
 - 10.10 Yosemite
