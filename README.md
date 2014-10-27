@@ -31,7 +31,7 @@ Just typing the command allows you to reproduce your development environment.
 
 ### Sync multiple environments
 
-![](http://pic.k0kubun.com/treCcBeBSil20o7.gif)
+![](http://pic.k0kubun.com/1B8yBClo0bg4W7Q.gif)
 
 ```bash
 # force update repository by `-f`
