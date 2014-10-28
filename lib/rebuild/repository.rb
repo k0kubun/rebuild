@@ -3,8 +3,6 @@ require 'fileutils'
 
 module Rebuild
   class Repository
-    DEFAULT_DIRECTORY = '/tmp'
-
     def initialize(path, options)
       @user, @repo = path.split('/')
       @directory   = options[:directory]
@@ -57,31 +55,19 @@ module Rebuild
     end
 
     def repo_path
-      File.join(upper_directory, directory_name)
-    end
-
-    def directory_name
       if @directory
-        expanded_directory.gsub(/\/$/, '').match(/[^\/]+$/).to_s
+        File.expand_path(@directory)
       else
-        @repo
+        File.join(default_directory, @repo)
       end
     end
 
     def upper_directory
-      if @directory
-        expanded_directory.gsub(/[^\/]+\/?$/, '')
-      else
-        user_path
-      end
+      repo_path.gsub(/[^\/]+\/?/, '')
     end
 
-    def expanded_directory
-      File.expand_path(@directory, `pwd`.strip)
-    end
-
-    def user_path
-      File.join(DEFAULT_DIRECTORY, @user)
+    def default_directory
+      File.expand_path('~')
     end
   end
 end
