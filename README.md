@@ -9,7 +9,7 @@ Development environment bootstrap automation toolkit for OSX
 `rebuild` allows you to achieve mouse-free command line tools installation in OSX Yosemite.  
 And `rebuild` clones your GitHub repository and runs all of your bootstrap scripts.  
   
-You can setup or synchronize your environment by just executing `rebuild <username>/<project>`
+You can setup or synchronize your environment by executing `rebuild [username]/[repository]`.
 
 ## Installation
 
@@ -28,6 +28,8 @@ $ rebuild [username]/[repository]
 
 **No need to touch your mouse.** Rebuild will click buttons for you in command line tools installation.
 Just typing the command allows you to reproduce your development environment.
+
+Your repository will be available at `~/[repository]`.
 
 ### Sync multiple environments
 
