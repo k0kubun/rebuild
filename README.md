@@ -51,7 +51,7 @@ $ rebuild -f
 # Repository will be cloned to ~/src/github.com/k0kubun/dotfiles
 $ rebuild -d ~/src/github.com/k0kubun/dotfiles
 
-# Run /tmp/k0kubun/dotfiles/script/*.sh instead of /tmp/k0kubun/dotfiles/*.sh
+# Run ~/dotfiles/script/*.sh instead of ~/dotfiles/*.sh
 $ rebuild -s script
 
 # You can choose which script to run first by shell pipeline

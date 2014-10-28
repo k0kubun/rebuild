@@ -95,7 +95,7 @@ module Rebuild
             -h, [--help]                           Show this
             -v, [--version]                        Print version
             -f, [--force-update]                   By default, git pull is not executed
-            -d, [--directory=/path/to/clone]       Default: /tmp/USER/PROJECT
+            -d, [--directory=/path/to/clone]       Default: ~/PROJECT
             -s, [--scriptdir=/script/placed/dir]   Default: '' (root)
 
         EOS
