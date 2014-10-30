@@ -69,7 +69,7 @@ EOS
 
 You can skip choosing option by ~/.gitconfig
 
-```aconf
+```conf
 # ~/.gitconfig
 # You can append config template by `rebuild config`
 
@@ -96,10 +96,6 @@ You can skip choosing option by ~/.gitconfig
 - 10.9 Maverics
 
 Prior to 10.8 Mountain Lion, features except command line tools installation are still supported.
-
-## TODO
-
-- Write test with rspec
 
 ## License
 
