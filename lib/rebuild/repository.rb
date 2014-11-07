@@ -63,7 +63,7 @@ module Rebuild
     end
 
     def upper_directory
-      repo_path.gsub(/[^\/]+\/?/, '')
+      repo_path.gsub(/[^\/]+\/?$/, '')
     end
 
     def default_directory
