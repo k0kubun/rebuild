@@ -2,8 +2,6 @@
 
 Development environment bootstrap automation toolkit for OSX
 
-![](http://pic.k0kubun.com/174syGrQYpdTo0N.gif)
-
 ## What's this?
 
 `rebuild` allows you to achieve mouse-free command line tools installation in OSX Yosemite.  
@@ -32,8 +30,6 @@ Just typing the command allows you to reproduce your development environment.
 Your repository will be available at `~/[repository]`.
 
 ### Sync multiple environments
-
-![](http://pic.k0kubun.com/1B8yBClo0bg4W7Q.gif)
 
 ```bash
 # force update repository by `-f`
@@ -64,8 +60,6 @@ EOS
 ```
 
 ## Config
-
-![](http://pic.k0kubun.com/wsrFmSZhBOug1Yj.gif)
 
 You can skip choosing option by ~/.gitconfig
 
