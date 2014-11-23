@@ -22,10 +22,13 @@ module Rebuild
         opt.on('-f', '--force-update')  { |v| options[:update] = true }
         opt.on('-d', '--directory=VAL') { |v| options[:directory] = v }
         opt.on('-s', '--scriptdir=VAL') { |v| options[:scriptdir] = v }
+        opt.on('-k', '--keep-sudo')     { |v| options[:keep_sudo] = true }
 
         args = opt.parse!(ARGV)
         return show_usage    if options[:help]
         return print_version if options[:version]
+
+        keep_sudo if options[:keep_sudo]
 
         CommandLineTools.install unless CommandLineTools.installed?
         License.agree            unless License.agreed?
@@ -45,6 +48,15 @@ module Rebuild
       end
 
       private
+
+      # Vendored from:
+      # https://github.com/mathiasbynens/dotfiles/blob/6e9822e879caed207f743c9eeadbf724610bff02/.osx#L5-L9
+      def keep_sudo
+        system(<<-EOS)
+          sudo -v
+          while true; do sudo -n true; sleep 1; kill -0 #{Process.pid} || exit; done 2>/dev/null &
+        EOS
+      end
 
       def bootstrap(repo, stdin, options)
         repo_path       = Repository.new(repo, options).fetch
@@ -95,6 +107,7 @@ module Rebuild
             -h, [--help]                           Show this
             -v, [--version]                        Print version
             -f, [--force-update]                   By default, git pull is not executed
+            -k, [--keep-sudo]                      Keep sudo enabled while execution
             -d, [--directory=/path/to/clone]       Default: ~/PROJECT
             -s, [--scriptdir=/script/placed/dir]   Default: '' (root)
 
