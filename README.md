@@ -2,6 +2,8 @@
 
 Development environment bootstrap automation toolkit for OSX
 
+![](http://i.gyazo.com/b4e7f4482c96d180d6c09100e8f89ff8.gif)
+
 ## What's this?
 
 `rebuild` allows you to achieve mouse-free command line tools installation in OSX Yosemite.  
@@ -60,6 +62,8 @@ EOS
 ```
 
 ## Config
+
+![](http://i.gyazo.com/cfd38dfcd8384116dac9677ae638bd56.gif)
 
 You can skip choosing option by ~/.gitconfig
 
