@@ -77,7 +77,7 @@ module Rebuild
           script = install_sh(command)
           unless script.empty?
             Logger.info("Running #{install_sh_url(command)}...")
-            return system(script)
+            exit system(script)
           end
 
           puts "Command #{command} is not found."
