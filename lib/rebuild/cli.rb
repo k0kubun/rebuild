@@ -74,6 +74,12 @@ module Rebuild
         when 'config'
           command_config
         else
+          script = install_sh(command)
+          unless script.empty?
+            Logger.info("Running #{install_sh_url(command)}...")
+            return system(script)
+          end
+
           puts "Command #{command} is not found."
           puts
           show_usage
@@ -121,6 +127,14 @@ module Rebuild
       def unindent(text)
         indent = text.split("\n").select {|line| !line.strip.empty? }.map {|line| line.index(/[^\s]/) }.compact.min || 0
         text.gsub(/^[[:blank:]]{#{indent}}/, '')
+      end
+
+      def install_sh(name)
+        `curl -LSfs #{install_sh_url(name)} 2> /dev/null`
+      end
+
+      def install_sh_url(name)
+        "https://raw.githubusercontent.com/#{name}/dotfiles/master/install.sh"
       end
     end
   end

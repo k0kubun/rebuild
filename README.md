@@ -41,6 +41,17 @@ $ rebuild -f k0kubun/dotfiles
 If you manage your development environment on GitHub repository,
 you can use this gem to synchronize multiple environments.
 
+### install.sh runner
+
+```bash
+# It will run:
+# https://raw.githubusercontent.com/[username]/dotfiles/master/install.sh"
+$ rebuild [username]
+```
+
+If you have dotfiles repository and install.sh in the root,
+you can execute it with a simple command.
+
 ## Options
 
 ```bash
