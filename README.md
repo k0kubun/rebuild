@@ -41,16 +41,16 @@ $ rebuild -f k0kubun/dotfiles
 If you manage your development environment on GitHub repository,
 you can use this gem to synchronize multiple environments.
 
-### Script runner
+### install.sh runner
 
 ```bash
-# You can abbreviate:
-# curl -LSfs https://raw.githubusercontent.com/k0kubun/dotfiles/master/install.sh | bash
-$ rebuild k0kubun | bash
+# It will run:
+# https://raw.githubusercontent.com/[username]/dotfiles/master/install.sh"
+$ rebuild [username]
 ```
 
 If you have dotfiles repository and install.sh in the root,
-you can fetch it with a simple command.
+you can execute it with a simple command.
 
 ## Options
 

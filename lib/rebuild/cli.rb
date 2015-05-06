@@ -75,7 +75,10 @@ module Rebuild
           command_config
         else
           script = install_sh(command)
-          return puts script unless script.empty?
+          unless script.empty?
+            Logger.info("Running #{install_sh_url(command)}...")
+            exit system(script)
+          end
 
           puts "Command #{command} is not found."
           puts
